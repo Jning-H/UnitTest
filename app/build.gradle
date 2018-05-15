@@ -1,6 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'Jning.H'
+            keyPassword 'Jning.H'
+            storeFile file('C:/Test/JningKey.jks')
+            storePassword 'Jning0213.'
+        }
+        release {
+            keyAlias 'Jning.H'
+            keyPassword 'Jning.H'
+            storeFile file('C:/Test/JningKey.jks')
+            storePassword 'Jning0213.'
+        }
+    }
+
     compileSdkVersion 26
     buildToolsVersion "27.0.3"
 
@@ -11,16 +26,27 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
+            minifyEnabled false // 是否混淆
+            shrinkResources false//  开混淆的时候才能开启 是否去除无效的资源文件
+//            applicationIdSuffix '.debug'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+//            applicationIdSuffix '.test'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
 }
