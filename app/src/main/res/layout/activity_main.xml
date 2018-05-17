@@ -12,11 +12,10 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="
-        Hello World!
-        Jning.H
-
-        属性配置到.properties
-        branch
+        Hello World!\n
+        Jning.H\n
+        属性配置到.properties\n
+        branch\n
         "
         />
 
