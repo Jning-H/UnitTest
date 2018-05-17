@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
                         "vCode: "+BuildConfig.VERSION_CODE +"\n"+
                         "vName: "+BuildConfig.VERSION_NAME;
         ((TextView)findViewById(R.id.tv_info)).setText(infoStr);
-        ((TextView)findViewById(R.id.tv_hello)).setText();
 
     }
 }
