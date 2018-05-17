@@ -7,6 +7,7 @@
     tools:context="com.jning.unittest.MainActivity">
 
     <TextView
+        android:id="@+id/tv_hello"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -15,7 +16,7 @@
         Jning.H
 
         属性配置到.properties
-
+        branch
         "
         />
 
