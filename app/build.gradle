@@ -60,16 +60,6 @@ android {
         }
     }
 
-    //渠道Flavors
-    productFlavors {
-        xiaomi {//0
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE:"xiaomi"]
-        }
-        wandoujianame {//1
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE:"wandoujiavalue"]
-        }
-    }
-
     //修改生成的apk名字及输出文件夹
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -86,12 +76,12 @@ android {
                 outDirectory = BUILD_PATH_JENKINS
                 //JKApp-v1.0.1-xiaomi-release.apk
 //                newName = APP_NAME+"-v"+APP_VERSION + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + "_jenkins" +'.apk'
-                newName = APP_NAME+"-v${defaultConfig.versionName}" + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + "_jenkins_${getData()}" + '.apk'
+                newName = APP_NAME+"-v${defaultConfig.versionName}" + '-' + '-' + variant.buildType.name + "_jenkins_${getData()}" + '.apk'
             } else {
                 //本机打包输出在本机路径
                 timeNow = getDate()
                 outDirectory = BUILD_PATH_LOCAL
-                newName = APP_NAME+"-v${defaultConfig.versionName}" + '-' + variant.productFlavors[0].name + '-' + variant.buildType.name + "_local_"+ timeNow + '.apk'
+                newName = APP_NAME+"-v${defaultConfig.versionName}" + '-' + '-' + variant.buildType.name + "_local_"+ timeNow + '.apk'
             }
             output.outputFile = new File(outDirectory+"/"+timeNow, newName)
         }
