@@ -23,18 +23,22 @@ android {
 
 
     signingConfigs {
-        debug {
-            keyAlias ALIAS_NAME
-//            keyPassword 'Jning.H'
-            keyPassword ALIAS_PWD
-            storeFile file(STORE_FILE)
-//            storePassword 'Jning0213.'
-            storePassword STORE_PWD
-        }
+//        debug {
+//            keyAlias ALIAS_NAME
+////            keyPassword 'Jning.H'
+//            keyPassword ALIAS_PWD
+//            storeFile file(STORE_FILE)
+////            storePassword 'Jning0213.'
+//            storePassword STORE_PWD
+//        }
         release {
             keyAlias ALIAS_NAME
             keyPassword ALIAS_PWD
-            storeFile file(STORE_FILE)
+            if ("true".equals(IS_JENKINS)) {
+                storeFile file(STORE_FILE)
+            }else{
+                storeFile file('C:/Test/JningKey.jks')
+            }
             storePassword STORE_PWD
         }
     }
