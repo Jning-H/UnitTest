@@ -3,6 +3,7 @@ package com.jning.unittest;
 import android.content.pm.Signature;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,10 +12,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this,
-                BuildConfig.BUILD_TYPE+"\n"+
-                        BuildConfig.DEBUG+"\n"+
-                        BuildConfig.FLAVOR+"\n"
-                ,Toast.LENGTH_LONG).show();
+        String infoStr=
+                "build type: "+BuildConfig.BUILD_TYPE+"\n"+
+                        "debug: "+BuildConfig.DEBUG+"\n"+
+                        "flavor: "+BuildConfig.FLAVOR+"\n"+
+                        "vCode: "+BuildConfig.VERSION_CODE +"\n"+
+                        "vName: "+BuildConfig.VERSION_NAME;
+        ((TextView)findViewById(R.id.tv_info)).setText(infoStr);
     }
 }
