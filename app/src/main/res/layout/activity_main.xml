@@ -15,9 +15,10 @@
         android:gravity="center"
         android:text="
         Hello World!
-        \n
-        \n
-        Jeakins!
+        Jning.H
+
+        属性配置到.properties
+
         "
         />
 </RelativeLayout>
