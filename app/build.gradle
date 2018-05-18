@@ -60,6 +60,16 @@ android {
         }
     }
 
+//    //修改生成的apk名字及输出文件夹
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def timeNow = releaseTime()
+//            def outDirectory = BUILD_PATH_LOCAL
+//            def fileName = "Miz_v${defaultConfig.versionName}" + '-' + variant.buildType.name + timeNow + '.apk'
+//            output.outputFile = new File(outDirectory, fileName)
+//        }
+//    }
+
     //修改生成的apk名字及输出文件夹
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -89,7 +99,9 @@ android {
         }
     }
 }
-
+def releaseTime() {
+    return new Date().format("MMdd_HHmm", TimeZone.getTimeZone("Etc/GMT-8"))
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
